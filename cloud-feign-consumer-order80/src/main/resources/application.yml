@@ -1,0 +1,26 @@
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-order-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7001/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+feign:
+  httpclient:
+    connection-timeout: 5000
+    connection-timer-repeat: 5000
+# 配置ribbion的超时时间
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+# 配置feign的日志级别
+logging:
+  level:
+    com.shengsheng.springcloud.api.OrderApi: debug

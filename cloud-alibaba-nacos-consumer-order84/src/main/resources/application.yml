@@ -1,0 +1,17 @@
+server:
+  port: 84
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # Nacos的默认端口
+    sentinel:
+      transport:
+        dashboard: localhost:8080 # sentinel默认端口
+        port: 8719
+# 开启feign的支持
+feign:
+  sentinel:
+    enabled: true
